@@ -66,3 +66,7 @@ As imagens do app estão em `doc/prints`:
   <img src="doc/prints/config_logout_image.jpg" width="15%"> &nbsp;
   <img src="doc/prints/product_details_image.jpg" width="15%">
 </p>
+
+## PDF DOC
+PDF contendo o fluxo do aplicativo
+[`PDF do app`](doc/shop-app-funcionalidades.pdf)
