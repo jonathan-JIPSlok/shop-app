@@ -1,13 +1,9 @@
 import { router } from "expo-router"
 import { Image, Text, TouchableOpacity, View } from "react-native"
-import { ProductInterface } from "../types/product"
+import { ProductType } from "../types/product"
 import { style } from "./productCardStyle"
 
-type ProductCardProps = {
-    product: ProductInterface
-}
-
-export const ProductCard = ({ product }: ProductCardProps) => {
+export const ProductCard = ({ product }: ProductType) => {
 
     let priceDiscount = product.price * (1 - product.discountPercentage / 100)
 

@@ -6,3 +6,7 @@ export interface ProductInterface {
     discountPercentage: number
     images: string[]
 }
+
+export type ProductType = {
+    product: ProductInterface
+}
