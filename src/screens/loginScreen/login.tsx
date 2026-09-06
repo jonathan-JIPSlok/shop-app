@@ -27,9 +27,9 @@ export const Login = () => {
         setIsLoginClicked(true)
         if (username.length <= 0 || password.length <= 0) {
             return null
-        } else if (user.id == 0) {
+        } else if (user.id === 0) {
             dispatch(setUser({id: 1, name: username, password: password}))
-        } else if(user.name != username || user.password != password){
+        } else if(user.name !== username || user.password !== password){
             setInvalidData("Username ou senha inválidos")
             return null
         }

@@ -1,4 +1,5 @@
-import getMensProducts, { mensCategoryList, womensCategoryList } from "@/src/services/shopService"
+import getMensProducts from "@/src/services/shopService"
+import { ProductInterface } from "@/src/types/product"
 import { EvilIcons } from "@expo/vector-icons"
 import Entypo from '@expo/vector-icons/Entypo'
 import { router } from "expo-router"
@@ -9,26 +10,24 @@ import { style } from "./style"
 
 export const Shop = () => {
 
-    const [productList, setProductList] = useState<any[]>([])
+    const [productList, setProductList] = useState<ProductInterface[]>([])
 
     const [bottomButtonSelected, setBottomButtonSelected] = useState("init")
     const [buttonProductSelected, setButtonProductSelected] = useState("masculino")
 
     const getProductsMens = async () => {
-        const products = await getMensProducts(mensCategoryList)
+        const products = await getMensProducts(JSON.parse(process.env.EXPO_PUBLIC_API_CATEGORI_MENS_LIST!))
         setProductList(products);
     }
 
     const getProductsWomens = async () => {
-        const products = await getMensProducts(womensCategoryList)
+        const products = await getMensProducts(JSON.parse(process.env.EXPO_PUBLIC_API_CATEGORI_WOMENS_LIST!))
         setProductList(products);
     }
 
     useEffect(() => {
-        if (productList.length == 0) {
-            getProductsMens()
-        }
-    })
+        getProductsMens()
+    }, [])
 
     return (
         <View>

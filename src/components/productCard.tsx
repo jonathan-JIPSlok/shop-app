@@ -1,36 +1,27 @@
 import { router } from "expo-router"
 import { Image, Text, TouchableOpacity, View } from "react-native"
-import { useDispatch, useSelector } from "react-redux"
-import { RootState } from "../store"
-import { setId } from "../store/slices/productSelected/productSelectedSlice"
+import { ProductInterface } from "../types/product"
 import { style } from "./productCardStyle"
 
 type ProductCardProps = {
-    product: {
-        id: number
-        title: string
-        description: string
-        price: number
-        discountPercentage: number
-        images: string[]
-    }
+    product: ProductInterface
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
 
     let priceDiscount = product.price * (1 - product.discountPercentage / 100)
 
-    const productSelected = useSelector((state: RootState) => state.productSelected.value)
-    const productSelectedDispatch = useDispatch()
-
     return (
         <TouchableOpacity
             style = {style.container}
             onPress={() => {
-                productSelectedDispatch(setId({id: product.id}))
-                router.push("/productDetails")
-                }
-            }
+                router.push({
+                    pathname: "/productDetails",
+                    params: {
+                        productId:product.id
+                    }
+                })
+            }}
         >
             <Image
                 source={{uri:product.images[0] }}

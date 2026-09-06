@@ -1,38 +1,26 @@
 import { getProductById } from '@/src/services/shopService';
-import { RootState } from '@/src/store';
+import { ProductInterface } from '@/src/types/product';
 import AntDesign from '@expo/vector-icons/AntDesign';
-import { router } from 'expo-router';
+import { router, useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Image, Text, View } from "react-native";
-import { useSelector } from 'react-redux';
 import { style } from "./style";
-
-interface productType {
-    title: string
-    description: string
-    images: string[]
-    price: number
-    discountPercentage: number
-}
 
 export default function ProductDetails() {
     
-    const [products, setProducts] = useState<productType | null>  (null)
+    const [products, setProducts] = useState<ProductInterface | null>  (null)
 
-    const productId = useSelector((state:RootState)=> {
-        return state.productSelected.value.id
-    })
+    const { productId } = useLocalSearchParams<{productId: string}>()
 
     const getInfoProduct = async () => {
-        const productList = await getProductById(productId)
+        const productList = await getProductById(Number(productId))
         setProducts(productList)
     }
 
     useEffect(() => {
-        if (products === null) {
-            getInfoProduct()
-        }
-    })
+        getInfoProduct()
+        
+    }, [])
 
     return (
         <View style={style.containerFrist}>
@@ -46,7 +34,7 @@ export default function ProductDetails() {
             
             </View>
             {
-                products != null
+                products !== null
                 ?
                 <View>
                     <Image

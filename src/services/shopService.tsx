@@ -1,10 +1,6 @@
 import axios from "axios";
 
-const APIURL = "https://dummyjson.com/products/";
-
-export const mensCategoryList = ["mens-shirts", "mens-shoes", "mens-watches"]
-export const womensCategoryList = ["womens-bags", "womens-dresses", "womens-jewellery", "womens-shoes", "womens-watches"]
-
+const APIURL = process.env.EXPO_PUBLIC_API_URL!
 
 export default async function getProducts(categoryList:string[]) {
 
@@ -20,7 +16,7 @@ export default async function getProducts(categoryList:string[]) {
         return arrayProducts;
     } catch (error) {
         console.error("Erro ao acessar api: ", error);
-        return [];
+        throw new Error("Não foi possível carregar os produtos");
     }
 }
 
@@ -30,8 +26,8 @@ export async function getProductById(id:number) {
             return result.data
         })
         .catch((error) => {
-            console.log("Erro ao acessar api: ", error)
-            return []
+            console.error("Erro ao acessar api para coletar produto por id: ", error)
+            throw new Error("Não foi possível carregar esse produto")
         })
 
         return response
