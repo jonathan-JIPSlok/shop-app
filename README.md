@@ -55,13 +55,14 @@ o aplicativo segue o seguinte portótipo: [`Protótipo Figma`](https://www.figma
 
 ## APP images
 As imagens do app estão em `doc/prints`:
-
-<img src="doc/prints/login_image.jpg" width="10%">
-<img src="doc/prints/login_image1.jpg" width="10%">
-<img src="doc/prints/login_image2.jpg" width="10%">
-<img src="doc/prints/login_image3.jpg" width="10%">
-<img src="doc/prints/login_image4.jpg" width="10%">
-<img src="doc/prints/products_mens_image.jpg" width="10%">
-<img src="doc/prints/products_womens_image.jpg" width="10%">
-<img src="doc\prints\config_logout_image.jpg" width="10%">
-<img src="doc\prints\product_details_image.jpg" width="10%">
+<p align="center">
+  <img src="doc/prints/login_image.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/login_image1.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/login_image2.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/login_image3.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/login_image4.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/products_mens_image.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/products_womens_image.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/config_logout_image.jpg" width="15%"> &nbsp;
+  <img src="doc/prints/product_details_image.jpg" width="15%">
+</p>
